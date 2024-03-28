@@ -30,6 +30,9 @@ public class OpenAIClientConfig {
     @Value("${openai-service.gpt-model}")
     private String model;
 
+    @Value("${openai-service.fine-tuning-model}")
+    private String fineTuningModel;
+
     @Value("${openai-service.audio-model}")
     private String audioModel;
 

@@ -15,5 +15,6 @@ import java.util.List;
 public class ChatGPTRequest implements Serializable {
 
     private String model;
+    private int max_tokens;
     private List<Message> messages;
 }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping(value = "/api")
-public class WhisperController {
+public class OpenAIController {
 
     private final OpenAIClientService openAIClientService;
 
@@ -25,5 +25,11 @@ public class WhisperController {
     public WhisperTranscriptionResponse createTranscription(@ModelAttribute TranscriptionRequest transcriptionRequest){
         return openAIClientService.createTranscription(transcriptionRequest);
     }
+
+    @PostMapping(value = "/fine-tuning-model", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ChatGPTResponse createTranscription(@RequestBody ChatRequest chatRequest){
+        return openAIClientService.reqFineTuningModel(chatRequest);
+    }
+
 
 }
