@@ -16,5 +16,8 @@ public class ChatGPTRequest implements Serializable {
 
     private String model;
     private int max_tokens;
+    private ResponseForm response_format;
     private List<Message> messages;
+
+
 }

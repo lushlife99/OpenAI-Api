@@ -1,9 +1,6 @@
 package com.example.whisperapiprac.openaiclient;
 
-import com.example.whisperapiprac.dto.ChatGPTRequest;
-import com.example.whisperapiprac.dto.ChatGPTResponse;
-import com.example.whisperapiprac.dto.WhisperTranscriptionRequest;
-import com.example.whisperapiprac.dto.WhisperTranscriptionResponse;
+import com.example.whisperapiprac.dto.*;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,4 +18,7 @@ public interface OpenAIClient {
 
     @PostMapping(value = "${openai-service.urls.chat-url}", headers = {"Content-Type=application/json"})
     ChatGPTResponse chat(@RequestBody ChatGPTRequest chatGPTRequest);
+
+    @PostMapping(value = "${openai-service.urls.moderation-url}", headers = {"Content-Type=application/json"})
+    ModerationResponse moderation(@RequestBody ModerationRequest ModerationRequest);
 }

@@ -1,9 +1,6 @@
 package com.example.whisperapiprac.controller;
 
-import com.example.whisperapiprac.dto.ChatGPTResponse;
-import com.example.whisperapiprac.dto.ChatRequest;
-import com.example.whisperapiprac.dto.TranscriptionRequest;
-import com.example.whisperapiprac.dto.WhisperTranscriptionResponse;
+import com.example.whisperapiprac.dto.*;
 import com.example.whisperapiprac.service.OpenAIClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -31,5 +28,9 @@ public class OpenAIController {
         return openAIClientService.reqFineTuningModel(chatRequest);
     }
 
+    @PostMapping(value = "/moderation", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ModerationResponse createModeration(@RequestBody ModerationRequest moderationRequest){
+        return openAIClientService.moderation(moderationRequest);
+    }
 
 }
